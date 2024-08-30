@@ -1,6 +1,6 @@
 # Immediate-error
 
-This is a utility to throw an error
+This is a utility to throw an error.
 
 ```javascript
 
@@ -16,7 +16,7 @@ immediateError('Assertion error', { errorType: ERROR.AssertionError }) // throws
 
 immediateError('Range error', { errorType: ERROR.RangeError }) // throws a rangeerror
 
-immediateError('Reference error', { errorType: ERROR.ReferenceError }) // throws an referenceerror
+immediateError('Reference error', { errorType: ERROR.ReferenceError }) // throws a referenceerror
 
 immediateError('Syntax error', { errorType: ERROR.SyntaxError }) // throws a syntaxerror
 

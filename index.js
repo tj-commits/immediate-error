@@ -1,62 +1,93 @@
 require('vanilla-javascript')
+require('vapor-js-npm')
 require('none')()
 
+const zr0 = require('integer-value-positive-zero') // number zero
+const one = require('the-number-one').default // number one
+const two = require('two') // no2 
+const five = require('five') //no5
+const successor = require('successor') // + 1
+global.jQuery = require('jquery')
+require('jquery-basic-arithmetic-plugin') // why not use jquery for math?
+const $ = jQuery // define jquery
+const { throwop } = require('yanoop') // throwop
+const throwError = require('throw-error') // nothing wrong with having another way to throw an error
+const If = require('if') // conditional chaining for javascript
+const clc = require('cli-color')
+
 const ERROR = Object.freeze({
-   Error: 0,
-   AssertionError: 1,
-   RangeError: 2,
-   ReferenceError: 3,
-   SyntaxError: 4,
-   TypeError: 5
+   Error: zr0(),
+   AssertionError: one,
+   RangeError: two(),
+   ReferenceError: successor(two()),
+   SyntaxError: $.subtract(five(), one),
+   TypeError: five()
 })
 
-const assert = require('assert-fn')
-var _____test_no_gray_out = assert
-_____test_no_gray_out = _____test_no_gray_out
+const assert = require('assert-fn') // import assert
+const vm = require('node:vm') // vm
 
-module.exports = function immediateError(message = 'You asked for it', options = {
+module.exports = function immediateError(message = 'YOU SUCK AT PROGRAMMING THERE WAS A FUCKING ERROR!', options = {
    errorType: ERROR.Error
 }) {
-   _____test_no_gray_out = options
-   var str
+   var error = new Error(message) /* create an error
+   variable and then use switch statement to set it*/
    switch(options.errorType) {
       case ERROR.Error: {
-         str = 'throw new Error(message)'
+         error = new Error(message)
          break
       }
 
       case ERROR.AssertionError: {
-         str = "throw new assert.AssertionError(message)"
+         error = new assert.AssertionError(message)
          break
       }
 
       case ERROR.RangeError: {
-         str = "throw new RangeError(message)"
+         error = new RangeError(message)
          break
       }
 
       case ERROR.ReferenceError: {
-         str = "throw new ReferenceError(message)"
+         error = new ReferenceError(message)
          break
       }
 
       case ERROR.SyntaxError: {
-         str = "throw new SyntaxError(message)"
+         error = new SyntaxError(message)
          break
       }
 
       case ERROR.TypeError: {
-         str = "throw new TypeError(message)"
+         error = new TypeError(message)
          break
       }
 
       default: {
-         error = Error
+         error = new Error(message)
          break
       }
    }
-
-   eval(str)
+   // make a vm context
+   const context = {
+      error,
+      throwError,
+      throwop,
+      rand: Math.random(),
+      If,
+      console,
+      clc
+   }
+   vm.createContext(context) // Contextify the object.
+   const script = new vm.Script(`
+   console.log(clc.redBright.bold(\`× THERE WAS AN ERROR!\`))
+   If(rand < 0.3).Then(() => {
+      throwError(error)
+   }).Else().If(rand > 0.3).Then(() => {
+   throwop(error)
+}).Else(() => {
+   throw error
+})`, { filename: `YOU SUCK AT PROGRAMMING THERE WAS AN ERROR!`})
+   script.runInContext(context)
 }
-
 module.exports.ERROR = ERROR

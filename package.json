@@ -1,6 +1,6 @@
 {
   "name": "immediate-error",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Immediate-error",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,19 @@
   "homepage": "https://github.com/tj-commits/immediate-error#readme",
   "dependencies": {
     "assert-fn": "^1.0.1",
+    "cli-color": "^2.0.4",
+    "five": "^0.8.0",
+    "if": "^2.0.0",
+    "integer-value-positive-zero": "^1.0.0",
+    "jquery": "^3.7.1",
+    "jquery-basic-arithmetic-plugin": "^1.1.0",
     "none": "^1.0.0",
-    "vanilla-javascript": "^1.1.1"
+    "successor": "^1.0.1",
+    "the-number-one": "^1.0.1",
+    "throw-error": "^1.0.0",
+    "two": "^1.0.7",
+    "vanilla-javascript": "^1.1.1",
+    "vapor-js-npm": "^1.4.6",
+    "yanoop": "^1.0.0"
   }
 }
