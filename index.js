@@ -15,7 +15,7 @@ const If = require('if') // conditional chaining for javascript
 const clc = require('cli-color')
 
 const ERROR = Object.freeze({
-   Error: 0,
+   Error:0,
    AssertionError: one,
    RangeError: two(),
    ReferenceError: successor(two()),
