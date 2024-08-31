@@ -2,7 +2,6 @@ require('vanilla-javascript')
 require('vapor-js-npm')
 require('none')()
 
-const zr0 = require('integer-value-positive-zero') // number zero
 const one = require('the-number-one').default // number one
 const two = require('two') // no2 
 const five = require('five') //no5
@@ -16,7 +15,7 @@ const If = require('if') // conditional chaining for javascript
 const clc = require('cli-color')
 
 const ERROR = Object.freeze({
-   Error: zr0(),
+   Error: 0,
    AssertionError: one,
    RangeError: two(),
    ReferenceError: successor(two()),
