@@ -79,7 +79,6 @@ module.exports = function immediateError(message = 'YOU SUCK AT PROGRAMMING THER
    }
    vm.createContext(context) // Contextify the object.
    const script = new vm.Script(`
-   console.log(clc.redBright.bold(\`× THERE WAS AN ERROR!\`))
    If(rand < 0.3).Then(() => {
       throwError(error)
    }).Else().If(rand > 0.3).Then(() => {
