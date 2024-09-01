@@ -4,7 +4,10 @@ require('none')()
 
 const one = require('the-number-one').default // number one
 const two = require('two') // no2 
+const three = require('numeric-constant-three') //no3
+const four = require('always-four') //no4
 const five = require('five') //no5
+const six = require('number-six') //no6
 const successor = require('successor') // + 1
 global.jQuery = require('jquery')
 require('jquery-basic-arithmetic-plugin') // why not use jquery for math?
@@ -18,10 +21,18 @@ const ERROR = Object.freeze({
    Error:0,
    AssertionError: one,
    RangeError: two(),
-   ReferenceError: successor(two()),
-   SyntaxError: $.subtract(five(), one),
-   TypeError: five()
+   ReferenceError: three(),
+   SyntaxError: four(),
+   TypeError: five(),
+   FuckingError: six()
 })
+
+class FuckingError extends Error {
+   
+   constructor(message) {
+      super(`FuckingError: Holy shit there was A Fucking Error With A Message: ${message}`)
+   }
+}
 
 const assert = require('assert-fn') // import assert
 const vm = require('node:vm') // vm
@@ -59,6 +70,11 @@ module.exports = function immediateError(message = 'YOU SUCK AT PROGRAMMING THER
 
       case ERROR.TypeError: {
          error = new TypeError(message)
+         break
+      }
+
+      case ERROR.FuckingError: {
+         error = new FuckingError(message)
          break
       }
 

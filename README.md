@@ -22,4 +22,6 @@ immediateError('Syntax error', { errorType: ERROR.SyntaxError }) // throws a syn
 
 immediateError('type error', { errorType: ERROR.TypeError }) // throws a typeerror
 
+immediateError('fucking error', { errorType: ERROR.FuckingError }) // throws a fuckingerror
+
 ```
