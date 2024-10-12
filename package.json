@@ -1,6 +1,6 @@
 {
   "name": "immediate-error",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "description": "Immediate-error",
   "main": "index.js",
   "scripts": {
