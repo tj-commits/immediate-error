@@ -1,7 +1,7 @@
 {
   "name": "immediate-error",
-  "version": "5.0.0",
-  "description": "Immediate-error",
+  "version": "5.1.0",
+  "description": "Throw errors, better.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
