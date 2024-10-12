@@ -1,7 +1,7 @@
 require('vanilla-javascript')
-require('vapor-js-npm')
 require('none')()
 
+const esmRequire = require('esm-wallaby')(module)
 const one = require('the-number-one').default
 const two = require('two')
 const three = require('numeric-constant-three')
@@ -10,6 +10,7 @@ const five = require('five')
 const six = require('number-six')
 const { throwop } = require('yanoop')
 const throwError = require('throw-error')
+const bail = esmRequire('bail').bail
 const If = require('if')
 const clc = require('cli-color')
 const isError = require('is-error')
@@ -44,27 +45,27 @@ exports.immediateError = function immediateError(message = 'ERROR!', errorType =
             error = new $BaseError(message)
             break
          }
-   
+
          case ERROR.AssertionError: {
             error = new $AssertionError(message)
             break
          }
-   
+
          case ERROR.RangeError: {
             error = new $RangeError(message)
             break
          }
-   
+
          case ERROR.ReferenceError: {
             error = new $ReferenceError(message)
             break
          }
-   
+
          case ERROR.SyntaxError: {
             error = new $SyntaxError(message)
             break
          }
-   
+
          case ERROR.TypeError: {
             error = new $TypeError(message)
             break
@@ -74,7 +75,7 @@ exports.immediateError = function immediateError(message = 'ERROR!', errorType =
             error = new $NativeAssertionError(message)
             break
          }
-   
+
          default: {
             try {
                error = new errorType(message)
@@ -95,17 +96,18 @@ exports.immediateError = function immediateError(message = 'ERROR!', errorType =
       rand: Math.random(),
       If,
       console,
-      clc
+      clc,
+      bail
    }
    vm.createContext(context)
 
    const script = new vm.Script(`
    If(rand < 0.3).Then(() => {
       throwError(error)
-   }).Else().If(rand > 0.3).Then(() => {
+   }).Else().If(rand > 0.3 && rand < 0.7).Then(() => {
       throwop(error)
    }).Else(() => {
-      throw error
+      bail(error)
    })`, { filename: `ERROR!`})
 
    script.runInContext(context)
